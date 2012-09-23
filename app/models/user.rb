@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
-  has_many :data_files, dependent: :destroy
-  has_many :links_tables, dependent: :destroy
+  has_many :relationships, foreign_key: "user_id", dependent: :destroy
+  has_many :data_files, :through => :relationship
+  has_many :links_users, foreign_key: "user_id", dependent: :destroy
+  has_many :links_tables, :through => :relationship
 
 
   before_save { |user| user.email = email.downcase }
@@ -23,5 +25,3 @@ class User < ActiveRecord::Base
       self.remember_token = SecureRandom.urlsafe_base64
     end
 end
-
-
