@@ -1,0 +1,20 @@
+<% provide(:title, 'New Data') %>
+<h1>Add Data</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@datafile, :url => {:action => "create"}) do |f| %>
+      <%= render 'shared/dataerror_messages', object: f.object %>
+      <%= f.label :Field1 %>
+      <%= f.text_field :Info1 %>
+
+      <%= f.label :Field2 %>
+      <%= f.text_field :Info2 %>
+
+      <%= f.label :Category %>
+      <%= f.text_field :Category %>
+
+      <%= f.submit "Create new data", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

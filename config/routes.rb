@@ -7,6 +7,17 @@ Synap::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/data',    to: 'data_file#data_file'
+  match '/data/index', to: 'data_file#index'
+  match '/data/show', to: 'data_file#show'
+  match '/data/new', to: 'data_file#new'
+  match '/data/create', to: 'data_file#create'
+  match '/data/edit', to: 'data_file#edit'
+  match '/data/update', to: 'data_file#update'
+
+  
+  match '/links',   to: 'links_table#linksindex'
         
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

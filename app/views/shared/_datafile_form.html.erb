@@ -1,0 +1,11 @@
+<%= form_for(@datafile) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new data..." %>
+  </div>
+      <%= f.text_area :content, placeholder: "Add info..." %>
+  </div>
+      <%= f.text_area :content, placeholder: "Category..." %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>

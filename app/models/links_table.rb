@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: links_tables
+#
+#  id         :integer          not null, primary key
+#  link1      :integer
+#  link2      :integer
+#  count      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class LinksTable < ActiveRecord::Base
   attr_accessible :count, :link1, :link2
 
