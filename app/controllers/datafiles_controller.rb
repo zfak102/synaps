@@ -1,16 +1,16 @@
-class DataFileController < ApplicationController
+class DatafilesController < ApplicationController
   before_filter :signed_in_user
 
   def index
-  	@datafiles = DataFile.paginate(page: params[:page])
+  	@datafiles = Datafile.paginate(page: params[:page])
   end
 
   def show
-  	@datafile = DataFile.find(params[:id]) 
+  	@datafiles = Datafile.find(params[:id]) 
   end
 
   def new
-  	@datafile = DataFile.new
+  	@datafiles = Datafile.new
   end
 
   # def create
@@ -20,12 +20,12 @@ class DataFileController < ApplicationController
   #     redirect_to root_url
   #   else
   #     @feed_items = []
-  #     render 'data_file/index'
+  #     render 'datafile/index'
   #   end
   # end
 
   def create
-    @datafile = DataFile.new(params[:datafile])
+    @datafiles = Datafile.new(params[:datafile])
     if @datafile.save
       flash[:success] = "New data added!"
       redirect_to root_url
@@ -38,24 +38,30 @@ class DataFileController < ApplicationController
   end
 
   def update
-  	if @data_file.update_attributes(params[:datafile])
+  	if @datafiles.update_attributes(params[:datafile])
       flash[:success] = "Data updated"
       sign_in @datafile
-      redirect_to @datafile
+      redirect_to @datafiles
     else
       render 'edit'
     end
   end
 
   def destroy
-    @datafile.destroy
+    @datafiles.destroy
     redirect_to root_url
+  end
+
+  def link
+    @title = "Link"
+    @datatables = DataTable.find(params[:id])
+    render 'show_link'
   end
 
   private
 
     def correct_user
-      @datafile = current_user.datafile.find_by_id(params[:id])
+      @datafiles = current_user.datafile.find_by_id(params[:id])
       redirect_to root_url if @datafile.nil?
     end
 end

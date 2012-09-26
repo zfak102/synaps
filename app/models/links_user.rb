@@ -3,4 +3,5 @@ class LinksUser < ActiveRecord::Base
 
     belongs_to :user
     belongs_to :links_table
+
 end

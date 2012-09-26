@@ -1,5 +1,7 @@
 Synap::Application.routes.draw do
   resources :users
+  resources :datafiles
+  resources :linkstables
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -8,16 +10,13 @@ Synap::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  match '/data',    to: 'data_file#data_file'
-  match '/data/index', to: 'data_file#index'
-  match '/data/show', to: 'data_file#show'
-  match '/data/new', to: 'data_file#new'
-  match '/data/create', to: 'data_file#create'
-  match '/data/edit', to: 'data_file#edit'
-  match '/data/update', to: 'data_file#update'
+  match '/data', to: 'datafiles#index'
+  match '/data/show', to: 'datafiles#show'
+  match '/data/new', to: 'datafiles#new'
+  match '/data/create', to: 'datafiles#create'
+  match '/data/edit', to: 'datafiles#edit'
+  match '/data/update', to: 'datafiles#update'
 
-  
-  match '/links',   to: 'links_table#linksindex'
         
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

@@ -5,7 +5,12 @@
   </div>
       <%= f.text_area :content, placeholder: "Add info..." %>
   </div>
-      <%= f.text_area :content, placeholder: "Category..." %>
+      <% %w{Book Movie Food}.each do |value|-%>
+    <% f.radio_button :assistanttype, value %> <% value %><br />
+    <% end -%> 
   </div>
   <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 <% end %>
+
+<!-- f.radio_button or f.check_box -->
+

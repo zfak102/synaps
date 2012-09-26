@@ -1,6 +1,6 @@
-class CreateDataFiles < ActiveRecord::Migration
+class CreateDatafiles < ActiveRecord::Migration
   def change
-    create_table :data_files do |t|
+    create_table :datafiles do |t|
       t.string :Info1
       t.string :Info2
       t.integer :Category

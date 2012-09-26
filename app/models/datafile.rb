@@ -10,8 +10,13 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
+class Datafile < ActiveRecord::Base
+  attr_accessible :Category, :Info1, :Info2
+  has_many :relationships, foreign_key: "datafile_id", dependent: :destroy
+  has_many :users, :through => :relationship
 
-describe DataFile do
-  pending "add some examples to (or delete) #{__FILE__}"
+    validates :Info1, presence: true, length: { maximum: 140 }
+
 end
+
+

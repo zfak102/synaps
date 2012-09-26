@@ -1,8 +1,13 @@
-<li>
+<% provide(:title, 'Data Index') %>
+<h1>Data Index</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
   <span class="content"><%= datafile.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(datafile.created_at) %> ago.
   </span>
-  
-  <% end %>
-</li>
+
+  </div>
+</div>

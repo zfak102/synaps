@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
-  has_many :relationships, foreign_key: "user_id", dependent: :destroy
-  has_many :data_files, :through => :relationship
+  has_many :relationships, foreign_key: "user_id"
+  has_many :datafiles, :through => :relationship
   has_many :links_users, foreign_key: "user_id", dependent: :destroy
-  has_many :links_tables, :through => :relationship
+  has_many :linkstables, :through => :relationship
 
 
   before_save { |user| user.email = email.downcase }
