@@ -3,7 +3,7 @@ class LinksTableController < ApplicationController
   before_filter :correct_user,   only: :destroy
 
   def index
-  	@links_table = LinksTable.paginate(page: params[:page])
+  	@links_tables = LinksTable.paginate(page: params[:page])
   end
 
   def show

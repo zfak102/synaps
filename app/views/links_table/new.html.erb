@@ -1,0 +1,22 @@
+<% provide(:title, 'Add Links') %>
+<h2>Add Links</h2>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for(@links_table) do |f| %>
+      <%= render 'shared/linkerror_messages', object: f.object %>
+
+      <%= f.label :Link1 %>
+      <%= f.collection_select(:datafiles_id, Datafile.all, :id, :datafeed, :prompt => true) %>
+
+<!-- not sure what i'm doing wrong -->
+
+      <%= f.label :Link2 %>
+      <%= f.collection_select(:datafiles_id, Datafile.all, :id, :datafeed, :prompt => true) %>
+
+
+      <%= f.submit "Create link", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

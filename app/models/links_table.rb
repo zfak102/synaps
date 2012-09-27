@@ -11,11 +11,11 @@
 #
 
 class LinksTable < ActiveRecord::Base
-  attr_accessible :count, :link1, :link2, :datafile_id
+  attr_accessible :count, :link1, :link2, :datafiles_id
 
   has_many :links_users, foreign_key: "links_table_id", dependent: :destroy
   has_many :users, :through => :relationship
-  belongs_to :datafile
+  belongs_to :datafiles
   belongs_to :link, class_name: "DataFile"
 
   validates :link1, presence: true

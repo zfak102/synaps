@@ -1,7 +1,7 @@
 Synap::Application.routes.draw do
   resources :users
   resources :datafiles
-  resources :linkstables
+  resources :links_tables
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -16,6 +16,8 @@ Synap::Application.routes.draw do
   match '/data/create', to: 'datafiles#create'
   match '/data/edit', to: 'datafiles#edit'
   match '/data/update', to: 'datafiles#update'
+
+  match '/link/new', to: 'links_table#new'
 
         
   match '/help',    to: 'static_pages#help'
