@@ -15,7 +15,8 @@ class Datafile < ActiveRecord::Base
   has_many :relationships, foreign_key: "datafile_id", dependent: :destroy
   has_many :users, :through => :relationship
 
-    validates :Info1, presence: true, length: { maximum: 140 }
+    validates :Info1, :uniqueness => { :scope => :Category,
+    :message => "Data already contains data" }, presence: true, length: { maximum: 140 }
 
 end
 

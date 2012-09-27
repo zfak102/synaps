@@ -1,15 +1,12 @@
 <% provide(:title, 'All data') %>
 <h1>All Data</h1>
 
-<div class="row">
-  <div class="span6 offset3">
+<%= will_paginate %>
 
 <ul class="datafiles">
-  <%= render @datafile %>
+  <%= render @datafiles %>
 </ul>
 
-  </div>
-</div>
-
-<% provide(:title, "farnaz") %>
+<% provide(:title, "All Data") %>
+<%= will_paginate %>
 

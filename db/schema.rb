@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923093505) do
+ActiveRecord::Schema.define(:version => 20120926194737) do
 
-  create_table "data_files", :force => true do |t|
+  create_table "datafiles", :force => true do |t|
     t.string   "Info1"
     t.string   "Info2"
     t.integer  "Category"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "authenticity_token"
   end
 
   create_table "links_tables", :force => true do |t|
@@ -29,14 +30,36 @@ ActiveRecord::Schema.define(:version => 20120923093505) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "links_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "links_table_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "links_users", ["links_table_id", "user_id"], :name => "index_links_users_on_links_table_id_and_user_id", :unique => true
+  add_index "links_users", ["links_table_id"], :name => "index_links_users_on_links_table_id"
+  add_index "links_users", ["user_id"], :name => "index_links_users_on_user_id"
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "datafile_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "relationships", ["datafile_id", "user_id"], :name => "index_relationships_on_datafile_id_and_user_id", :unique => true
+  add_index "relationships", ["datafile_id"], :name => "index_relationships_on_datafile_id"
+  add_index "relationships", ["user_id"], :name => "index_relationships_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

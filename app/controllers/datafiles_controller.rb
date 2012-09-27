@@ -13,34 +13,23 @@ class DatafilesController < ApplicationController
   	@datafiles = Datafile.new
   end
 
-  # def create
-  #   @datafile = current_datafile.build(params[:datafile])
-  #   if @datafile.save
-  #     flash[:success] = "New file created!"
-  #     redirect_to root_url
-  #   else
-  #     @feed_items = []
-  #     render 'datafile/index'
-  #   end
-  # end
-
   def create
     @datafiles = Datafile.new(params[:datafile])
-    if @datafile.save
+    if @datafiles.save
       flash[:success] = "New data added!"
-      redirect_to root_url
+      redirect_to 'datafiles/index'
     else
       render 'new'
     end
   end
 
   def edit
+    @datafiles = Datafile.find(params[:id]) 
   end
 
   def update
   	if @datafiles.update_attributes(params[:datafile])
       flash[:success] = "Data updated"
-      sign_in @datafile
       redirect_to @datafiles
     else
       render 'edit'

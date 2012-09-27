@@ -1,10 +1,11 @@
-<% if @datafile.errors.any? %>
+<!-- error normally relates to the file being entered no the errors function -->
+<% if @datafiles.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@datafile.errors.count, "error") %>.
+      The form contains <%= pluralize(@datafiles.errors.count, "error") %>.
     </div>
     <ul>
-    <% @datafile.errors.full_messages.each do |msg| %>
+    <% @datafiles.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>

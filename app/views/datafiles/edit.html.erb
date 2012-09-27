@@ -1,8 +1,26 @@
-<% provide(:title, 'Edit Data') %>
-<h1>Edit Data</h1>
+<% provide(:title, "Edit Data") %> 
+<h1>Update your profile</h1>
 
 <div class="row">
   <div class="span6 offset3">
+      
+      <%= form_for(:datafile, url: datafiles_path) do |f| %>
+      <%= render 'shared/dataerror_messages' %>
+
+      <%= f.label :Field1 %>
+      <%= f.text_field :Info1 %>
+
+      <%= f.label :Field2 %>
+      <%= f.text_field :Info2 %>
+
+      <%= f.label :Category %>
+      <%= f.select :Category, [['Movie', 1],['Book', 2],['Song', 3],['Other', 4]] %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+
+     <% end %>
 
   </div>
 </div>
+
+   

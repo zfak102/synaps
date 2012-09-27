@@ -23,6 +23,8 @@ Synap::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/news',    to: 'static_pages#news'
  
+  match '/recommend', to: 'datafiles#index'
+  match '/map', to: 'datafiles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

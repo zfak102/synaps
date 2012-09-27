@@ -13,19 +13,9 @@ class DataFileController < ApplicationController
   	@datafile = DataFile.new
   end
 
-  # def create
-  #   @datafile = current_datafile.build(params[:datafile])
-  #   if @datafile.save
-  #     flash[:success] = "New file created!"
-  #     redirect_to root_url
-  #   else
-  #     @feed_items = []
-  #     render 'data_file/index'
-  #   end
-  # end
 
   def create
-    @datafile = DataFile.new(params[:datafile])
+    @datafile = DataFile.new(params[:datafiles])
     if @datafile.save
       flash[:success] = "New data added!"
       redirect_to root_url
