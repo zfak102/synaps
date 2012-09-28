@@ -20,7 +20,7 @@ class Datafile < ActiveRecord::Base
     :message => "Data already contained on file" }, presence: true, length: { maximum: 140 }
 
   def Datafeed
-    "#{Info1}. #{Category}"
+    " #{Info1}. #{Category} "
   end
 
 end
