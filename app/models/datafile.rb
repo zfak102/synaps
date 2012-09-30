@@ -19,8 +19,10 @@ class Datafile < ActiveRecord::Base
     validates :Info1, :uniqueness => { :scope => :Category,
     :message => "Data already contained on file" }, presence: true, length: { maximum: 140 }
 
-  def Datafeed
-    " #{Info1}. #{Category} "
+
+  def idchange
+  	idchange = :id
+
   end
 
 end

@@ -47,6 +47,11 @@ class DatafilesController < ApplicationController
     render 'show_link'
   end
 
+  def info1
+    info = datafile.Info1
+    @info1 = link_to "info", datafiles
+  end
+
   private
 
     def correct_user

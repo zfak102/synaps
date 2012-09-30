@@ -14,10 +14,11 @@ Synap::Application.routes.draw do
   match '/data/show', to: 'datafiles#show'
   match '/data/new', to: 'datafiles#new'
   match '/data/create', to: 'datafiles#create'
-  match '/data/edit', to: 'datafiles#edit'
+  match '/data/:id/edit', to: 'datafiles#edit'
   match '/data/update', to: 'datafiles#update'
 
-  match '/link/new', to: 'links_table#new'
+  match '/link/new', to: 'links_tables#new'
+  match '/link', to: 'links_tables#links_table'
 
         
   match '/help',    to: 'static_pages#help'

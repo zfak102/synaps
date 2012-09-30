@@ -20,13 +20,14 @@ class LinksTable < ActiveRecord::Base
 
   validates :link1, presence: true
   validates :link2, presence: true
-  # validates :link1, :uniqueness => { :scope => :link2 }
-  # validates :link1, :numericality => { :less_than_or_equal_to => 3 }
-  # validates :link2, :numericality => { :less_than_or_equal_to => 3 }
+  validates :link1, :uniqueness => { :scope => :link2 }
+  validates :link1, :numericality => { :less_than_or_equal_to => 5}
+  validates :link2, :numericality => { :less_than_or_equal_to => 5}
 
-  # def maxdata
-  #   DataFile.last.id
-  # end
+
+  def maxdata
+     DataFile.last.id
+  end
 
 
 

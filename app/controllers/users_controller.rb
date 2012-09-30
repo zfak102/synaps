@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @datafiles = @user.datafiles.paginate(page: params[:page])
   end
 
   def new
@@ -46,6 +47,17 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def data_present?(current_user)
+    relationships.find_by_datafile_id(current_user.id)
+  end
+
+  def add_data!(current_user)
+    relationships.create!(datafile_id: current_user.id)
+  end
+
+  def remove_data!(current_user)
+    relationships.find_by_datafile_id(current_user.id).destroy
+  end
 
   private
 

@@ -9,3 +9,28 @@
     </section>
   </aside>
 </div>
+
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <%= render 'link_form' if signed_in? %>
+    <% if @user.datafiles.any? %>
+      <h3>(<%= @user.datafiles.count %>)</h3>
+      <ol class="Datafiles">
+        <%= render @datafiles %>
+      </ol>
+      <%= will_paginate @datafiles %>
+    <% end %>
+  </div>
+</div>
