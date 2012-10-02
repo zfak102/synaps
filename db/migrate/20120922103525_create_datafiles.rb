@@ -3,7 +3,7 @@ class CreateDatafiles < ActiveRecord::Migration
     create_table :datafiles do |t|
       t.string :Info1
       t.string :Info2
-      t.integer :Category
+      t.string :Category
 
       t.timestamps
     end

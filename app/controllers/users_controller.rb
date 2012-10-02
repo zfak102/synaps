@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @datafiles = @user.datafiles.paginate(page: params[:page])
+   
   end
 
   def new

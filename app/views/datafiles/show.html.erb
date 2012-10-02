@@ -1,13 +1,21 @@
-<% provide(:title, @datafile.Info1) %>
+<% provide(:title, :datafile) %>
 <div class="row">
   <aside class="span4">
     <section>
       <h1>
-        <%= @datafile.Info1 %>
+              <%= form_for(:datafile, url: datafiles_path) do |f| %>
+
+      <%= f.label :Field1 %>
+      <%= f.text_field :Info1%>
+
+      <%= f.label :Field2 %>
+      <%= f.text_field :Info2%>
+
+      <%= f.label :Category %>
+      <%= f.text_field :Category %>
+
+     <% end %>
       </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
     </section>
   </aside>
   </div>

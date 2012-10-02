@@ -2,6 +2,10 @@ class LinksTablesController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_user,   only: :destroy
 
+    def recommendations
+ 
+    end
+
   def links_table
   	@links_table = LinksTable.paginate(page: params[:page])
   end
@@ -21,7 +25,7 @@ class LinksTablesController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      render 'links_table/linksindex'
+      render 'links_tables/linksindex'
     end
   end
 
@@ -29,6 +33,10 @@ class LinksTablesController < ApplicationController
     @links_table.destroy
     redirect_to root_url
   end
+
+  def Recommendations
+
+  end 
 
   private
 

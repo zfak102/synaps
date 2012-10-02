@@ -1,12 +1,13 @@
 class DatafilesController < ApplicationController
   before_filter :signed_in_user
 
+
   def index
   	@datafiles = Datafile.paginate(page: params[:page])
   end
 
   def show
-  	@datafiles = Datafile.find(params[:id]) 
+  	@datafile = Datafile.find(params[:id]) 
   end
 
   def new
@@ -24,11 +25,11 @@ class DatafilesController < ApplicationController
   end
 
   def edit
-    @datafiles = Datafile.find(params[:id]) 
+    @datafile = Datafile.find(params[:id]) 
   end
 
   def update
-  	if @datafiles.update_attributes(params[:datafile])
+  	if @datafiles.update_attributes(params[:id])
       flash[:success] = "Data updated"
       redirect_to @datafiles
     else

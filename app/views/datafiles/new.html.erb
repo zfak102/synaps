@@ -13,7 +13,7 @@
       <%= f.text_field :Info2 %>
 
       <%= f.label :Category %>
-      <%= f.select :Category, [['Movie', 1],['Book', 2],['Song', 3],['Other', 4]] %>
+      <%= f.select :Category, options_for_select(Datafile.return_reason_select, @datafiles.Category) %>
 
       <%= f.submit "Create new data", class: "btn btn-large btn-primary" %>
     <% end %>

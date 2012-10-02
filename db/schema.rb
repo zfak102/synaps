@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927140027) do
+ActiveRecord::Schema.define(:version => 20120928201639) do
 
   create_table "datafiles", :force => true do |t|
     t.string   "Info1"
     t.string   "Info2"
-    t.integer  "Category"
+    t.string   "Category"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "authenticity_token"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120927140027) do
   add_index "datafiles", ["Info1", "Category"], :name => "index_datafiles_on_Info1_and_Category", :unique => true
 
   create_table "links_tables", :force => true do |t|
-    t.integer  "link1"
-    t.integer  "link2"
+    t.string   "link1"
+    t.string   "link2"
     t.integer  "count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

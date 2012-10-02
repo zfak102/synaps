@@ -6,28 +6,28 @@ Synap::Application.routes.draw do
 
   root to: 'static_pages#home'
 
+  match '/recommend', to: 'links_tables#recommendations'
+
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/data', to: 'datafiles#index'
-  match '/data/show', to: 'datafiles#show'
   match '/data/new', to: 'datafiles#new'
   match '/data/create', to: 'datafiles#create'
-  match '/data/:id/edit', to: 'datafiles#edit'
-  match '/data/update', to: 'datafiles#update'
+  match '/data/:id/show' => 'datafiles#show'
+  match '/data/:id/edit' => 'datafiles#edit'
+  match '/data/:id/update', to: 'datafiles#update'
 
   match '/link/new', to: 'links_tables#new'
   match '/link', to: 'links_tables#links_table'
 
-        
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/news',    to: 'static_pages#news'
  
-  match '/recommend', to: 'datafiles#index'
-  match '/map', to: 'datafiles#index'
+  match '/map', to: 'static_pages#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -39,6 +39,7 @@ Synap::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
