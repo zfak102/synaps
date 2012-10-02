@@ -94,17 +94,20 @@ footer {
       color: $grayDarker;
     }
   }  
+  link { display: block;
+   float: centre;
+  }
   small { 
     float: left; 
   }
   ul {
     float: right;
     list-style: none;
-    li {
+      li {
       float: left;
       margin-left: 10px;
+      }
     }
-  }
 }
 
 /* miscellaneous */

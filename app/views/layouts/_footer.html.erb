@@ -1,14 +1,30 @@
 <footer class="footer">
-  <small>
+  <link>
+    <%= form_for(:links_table) do |f| %>
+      <%= f.label :Link %>
+      <%= f.collection_select :link1, Datafile.find(:all), :idchange, :Info1, :prompt => true  %>
+      <%= f.label :to %>
+      <%= f.collection_select :link2, Datafile.find(:all), :idchange, :Info1, :prompt => true  %>
+      <%= f.submit "Create link", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </link>
+   
+<br>
+        <small>
     <a href="http://www.Synaps.org/">A new way to arrange your thoughts</a>
     by Zahara Khan
   </small>
   <nav>
-    <ul>
+    <span>
+      <ul>
       <li><%= link_to "About",   about_path %></li>
       <li><%= link_to "Contact", contact_path %></li>
       <li><%= link_to "News", news_path %></li>
       <li><%= link_to "Help", help_path %></li>
     </ul>
+ </span>
+    </br>
+   
   </nav>
+
 </footer>
