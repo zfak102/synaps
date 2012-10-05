@@ -10,7 +10,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-   
+      if @user.nil?
+    @users = User.all
+    render "index", :alert => 'User was not found!'
+    end
   end
 
   def new
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def add_data!(current_user)
-    relationships.create!(datafile_id: current_user.id)
+    relationships.create!(datafile_id, current_user.id)
   end
 
   def remove_data!(current_user)

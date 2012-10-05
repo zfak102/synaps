@@ -20,4 +20,5 @@ class Relationship < ActiveRecord::Base
   validates_associated :user
   validates_associated :datafile
 
+
 end

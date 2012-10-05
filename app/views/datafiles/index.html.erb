@@ -1,12 +1,18 @@
 <% provide(:title, 'All data') %>
-<h1>All Data</h1>
+  <h1>All Data</h1>
+  
+  <center>
+    <h2 class="btn btn-large btn-primary">
+      <%= link_to "Add new Data", data_new_path %>
+    </h2>
+  </center>
 
 <%= will_paginate %>
 
-<ul class="datafiles">
-  <%= render @datafiles %> 
-</ul>
+  <ul class="datafiles">
+   <%= render @datafiles %> 
+  </ul>
 
-<% provide(:title, "All Data") %>
+ <% provide(:title, "All Data") %>
 <%= will_paginate %>
 

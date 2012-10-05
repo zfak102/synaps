@@ -1,8 +1,9 @@
-<br>
-<div>
-	<%= "File Name" %> <%= link_to datafile.Info1, edit_datafile_path(:id => datafile.id) %> <br>
-	<%= "Additional Info:" %> <%= datafile.Info2 %> <br>
-	<%= "Category:" %> <%= datafile.Category %> </br>
+
+<ol>
+	<table>
+	<tr><%= "File Name" %> <%= link_to datafile.Info1, edit_datafile_path(:id => datafile.id) %> </tr> <br>
+<tr>	<%= "Additional Info:" %><%= datafile.Info2 %> </tr> <br>
+<tr>	<%= "Category:" %> <%= datafile.Category %> </tr> <br></br>
 	<!-- find a way to display category rather then number -->
-<div>
-	</br>
+<table>
+<ol>	

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :relationship, foreign_key: "user_id"
   has_many :datafiles, :through => :relationship
   has_many :links_users, foreign_key: "user_id", dependent: :destroy
-  has_many :linkstables, :through => :links_user
+  has_many :links_tables, :through => :links_user
 
 
   before_save { |user| user.email = email.downcase }

@@ -8,6 +8,10 @@ class DatafilesController < ApplicationController
 
   def show
   	@datafile = Datafile.find(params[:id]) 
+      if @datafile.nil?
+    @datafiles = Datafile.all
+    render "index", :alert => 'Data was not found!'
+   end
   end
 
   def new
@@ -17,6 +21,7 @@ class DatafilesController < ApplicationController
   def create
     @datafiles = Datafile.new(params[:datafile])
     if @datafiles.save
+      Relationship.create!(:datafile_id => :datafile_id, :user_id => :user.id)
       flash[:success] = "New data added!"
       redirect_to 'datafiles/index'
     else
@@ -56,7 +61,7 @@ class DatafilesController < ApplicationController
   private
 
     def correct_user
-      @datafiles = current_user.datafile.find_by_id(params[:id])
-      redirect_to root_url if @datafile.nil?
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

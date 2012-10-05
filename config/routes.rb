@@ -1,7 +1,13 @@
 Synap::Application.routes.draw do
-  resources :users
+  resources :users 
   resources :datafiles
+  #   member do
+  #     get :show, :edit
+  #   end
+  # end  something from  RoR tutorial i think i should be using to make /datafiles/1/show 
   resources :links_tables
+  resources :links_users
+  resources :relationships
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
