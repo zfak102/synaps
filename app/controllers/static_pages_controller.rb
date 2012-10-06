@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout 'linkapplication'
   def home
       #   if signed_in?
       # @links_table  = current_user.linkstable.build

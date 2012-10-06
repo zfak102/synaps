@@ -20,5 +20,8 @@ class Relationship < ActiveRecord::Base
   validates_associated :user
   validates_associated :datafile
 
+  def user
+  	@user = User.find[id = current_user.id]
+  end
 
 end

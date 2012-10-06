@@ -1,10 +1,12 @@
 class LinksTablesController < ApplicationController
+  layout 'linkapplication'
+
   before_filter :signed_in_user
   before_filter :correct_user,   only: :destroy
 
-    def recommendations
- 
-    end
+
+  def recommendations
+  end
 
   def links_table
   	@links_table = LinksTable.paginate(page: params[:page])

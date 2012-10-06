@@ -19,10 +19,10 @@ class Datafile < ActiveRecord::Base
     validates :Info1, :uniqueness => { :scope => :Category,
     :message => "Data already contained on file" }, presence: true, length: { maximum: 140 }
 
-  @@return_reason_keys = { 1 => "movie",
-                           2 => "book",
-                           3 => "song",
-                           4 => "other"}
+  @@return_reason_keys = { "movie" => "movie",
+                           "book" => "book",
+                           "song" => "song",
+                           "other" => "other"}
 
   def self.return_reason_select
     @@return_reason_keys.invert

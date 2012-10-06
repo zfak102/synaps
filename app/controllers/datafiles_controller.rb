@@ -1,6 +1,10 @@
 class DatafilesController < ApplicationController
   before_filter :signed_in_user
+  before_filter :get_user
 
+  def get_user
+    @user = current_user
+  end
 
   def index
   	@datafiles = Datafile.paginate(page: params[:page])
@@ -21,7 +25,7 @@ class DatafilesController < ApplicationController
   def create
     @datafiles = Datafile.new(params[:datafile])
     if @datafiles.save
-      Relationship.create!(:datafile_id => :datafile_id, :user_id => :user.id)
+      Relationship.create!(:datafile_id => :datafile_id, :user_id => @user.id)
       flash[:success] = "New data added!"
       redirect_to 'datafiles/index'
     else

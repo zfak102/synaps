@@ -1,9 +1,24 @@
 
-<ol>
-	<table>
-	<tr><%= "File Name" %> <%= link_to datafile.Info1, edit_datafile_path(:id => datafile.id) %> </tr> <br>
-<tr>	<%= "Additional Info:" %><%= datafile.Info2 %> </tr> <br>
-<tr>	<%= "Category:" %> <%= datafile.Category %> </tr> <br></br>
-	<!-- find a way to display category rather then number -->
-<table>
-<ol>	
+<table class="table table-bordered">
+	<thead>
+   	 <tr>
+		 <th><%= "File Name" %></th>
+		 <th><%= "Additional Info:" %></th>
+		 <th><%= "Category:" %></th>
+		 <th><%= "Link to:" %></th>
+     </tr>
+    </thead>
+     
+    <tbody>
+	 <% @datafiles.each do |d| %>
+	 <tr> 
+	    <td> <%= link_to d.Info1, edit_datafile_path(:id => datafile.id) %> </td>
+ 		<td><%= d.Info2 %></td>
+		<td><%= d.Category %></td>
+		<th><%  %></th>
+	 </tr>
+	 <%end%>
+	</tbody>
+
+</table>
+			<!-- find a way to display category rather then number -->	
