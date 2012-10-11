@@ -16,7 +16,7 @@ class LinksTable < ActiveRecord::Base
   has_many :links_users, foreign_key: "links_table_id", dependent: :destroy
   has_many :users, :through => :relationship
   belongs_to :datafiles
-  belongs_to :link, class_name: "DataFile"
+  belongs_to :datafile
 
   validates :link1, presence: true
   validates :link2, presence: true
@@ -25,9 +25,7 @@ class LinksTable < ActiveRecord::Base
   validates :link2, :numericality => { :less_than_or_equal_to => 5}
 
 
-  def maxdata
-     DataFile.last.id
-  end
+
 
 
 

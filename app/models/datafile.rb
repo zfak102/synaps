@@ -19,6 +19,8 @@ class Datafile < ActiveRecord::Base
     validates :Info1, :uniqueness => { :scope => :Category,
     :message => "Data already contained on file" }, presence: true, length: { maximum: 140 }
 
+
+
   @@return_reason_keys = { "movie" => "movie",
                            "book" => "book",
                            "song" => "song",
@@ -31,7 +33,6 @@ class Datafile < ActiveRecord::Base
   def return_reason
     @@return_reason_keys[Category]
   end
-
 
   def idchange
   	idchange = :id

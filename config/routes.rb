@@ -26,6 +26,8 @@ Synap::Application.routes.draw do
   match '/data/:id/update', to: 'datafiles#update'
 
   match '/link/new', to: 'links_tables#new'
+  match '/link/:id', to: 'links_tables#create'
+
   match '/link', to: 'links_tables#links_table'
 
   match '/help',    to: 'static_pages#help'

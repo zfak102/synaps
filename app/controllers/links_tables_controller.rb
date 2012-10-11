@@ -23,7 +23,7 @@ class LinksTablesController < ApplicationController
   def create
     @links_table = current_user.links_table.build(params[:links_table])
     if @links_table.save
-      flash[:success] = "New file created!"
+      flash[:success] = "Data Linked!"
       redirect_to root_url
     else
       @feed_items = []

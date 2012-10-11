@@ -25,9 +25,9 @@ class DatafilesController < ApplicationController
   def create
     @datafiles = Datafile.new(params[:datafile])
     if @datafiles.save
-      Relationship.create!(:datafile_id => :datafile_id, :user_id => @user.id)
+      Relationship.create!(:datafile_id => Datafile.last.id, :user_id => current_user.id)
       flash[:success] = "New data added!"
-      redirect_to 'datafiles/index'
+      redirect_to '/data'
     else
       render 'new'
     end
