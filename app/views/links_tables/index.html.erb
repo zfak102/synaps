@@ -1,0 +1,17 @@
+<% provide(:title, 'All Links') %>
+  <h1>All Links</h1>
+  
+  <center>
+    <h2 class="btn btn-large btn-primary">
+      <%= link_to "Add new link", :controller => "links_tables", :action => "new"%>
+    </h2>
+  </center>
+
+
+
+<ul class="links_tables">
+  <%= render @links_tables %> 
+</ul>
+
+ <% provide(:title, "All") %>
+

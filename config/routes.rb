@@ -1,11 +1,11 @@
 Synap::Application.routes.draw do
   resources :users 
-  resources :datafiles
+  resources :datafiles, :path => 'data'
   #   member do
   #     get :show, :edit
   #   end
   # end  something from  RoR tutorial i think i should be using to make /datafiles/1/show 
-  resources :links_tables
+  resources :links_tables, :path => 'link'
   resources :links_users
   resources :relationships
   resources :sessions, only: [:new, :create, :destroy]
@@ -19,15 +19,11 @@ Synap::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/data', to: 'datafiles#index'
-  match '/data/new', to: 'datafiles#new'
-  match '/data/create', to: 'datafiles#create'
   match '/data/:id/show' => 'datafiles#show'
   match '/data/:id/edit' => 'datafiles#edit'
   match '/data/:id/update', to: 'datafiles#update'
 
-  match '/link/new', to: 'links_tables#new'
   match '/link/:id', to: 'links_tables#create'
-
   match '/link', to: 'links_tables#links_table'
 
   match '/help',    to: 'static_pages#help'

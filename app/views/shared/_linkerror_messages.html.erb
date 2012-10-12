@@ -1,5 +1,5 @@
 <!-- error normally relates to the file being entered no the errors function -->
-<% if @links_table.errors.any? %>
+<% if @links_tables.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
       The form contains <%= pluralize(@links_tables.errors.count, "error") %>.

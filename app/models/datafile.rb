@@ -34,10 +34,6 @@ class Datafile < ActiveRecord::Base
     @@return_reason_keys[Category]
   end
 
-  def idchange
-  	idchange = :id
-  end
-
 end
 
 

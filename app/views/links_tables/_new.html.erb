@@ -1,12 +1,13 @@
 <div class="row">
   <div class="span6 offset3">
-  	
+
     <%= form_for(:links_table, url: links_tables_path) do |f| %>
+
       <%= f.label :Link %>
-      <%= f.collection_select :link1, Datafile.find(:all), :idchange, :Info1, :prompt => true  %>
+      <%= f.collection_select :link1, Datafile.find(:all), :id, :Info1, :prompt => true  %>
 
       <%= f.label :to %>
-      <%= f.collection_select :link2, Datafile.find(:all), :idchange, :Info1, :prompt => true  %>
+      <%= f.collection_select :link2, Datafile.find(:all), :id, :Info1, :prompt => true  %>
 
       <%= f.submit "Create link", class: "btn btn-large btn-primary" %>
     <% end %>
