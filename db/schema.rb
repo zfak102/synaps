@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928201639) do
+ActiveRecord::Schema.define(:version => 20121015205229) do
 
   create_table "datafiles", :force => true do |t|
     t.string   "Info1"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120928201639) do
     t.integer  "links_table_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.boolean  "dislike"
   end
 
   add_index "links_users", ["links_table_id", "user_id"], :name => "index_links_users_on_links_table_id_and_user_id", :unique => true

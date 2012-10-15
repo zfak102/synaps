@@ -17,7 +17,6 @@ class LinksUser < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :links_table_id, presence: true
-  validates_associated :links_tables
-  validates_associated :user
+
 
 end
